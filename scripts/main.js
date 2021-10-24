@@ -1,4 +1,5 @@
 const HEADER_HEIGHT = 64;
+const VISIBLE_POINT = 300;
 const linkList = document.querySelector("#link-list");
 const backToTopBtn = document.getElementById('scroll-top');
 
@@ -15,7 +16,7 @@ function findCoordinates(id) {
 
 document.addEventListener('scroll', function() {
     let currentScrollY = window.scrollY;
-    if(currentScrollY > HEADER_HEIGHT){
+    if(currentScrollY > VISIBLE_POINT){
         backToTopBtn.classList.add('visible')
     } else {
         backToTopBtn.classList.remove('visible')
