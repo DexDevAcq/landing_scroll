@@ -1,4 +1,4 @@
-const NAV_HEIGHT = 64;
+const HEADER_HEIGHT = 64;
 const linkList = document.querySelector("#link-list");
 const backToTopBtn = document.getElementById('scroll-top');
 
@@ -9,13 +9,13 @@ const backToTopBtn = document.getElementById('scroll-top');
 function findCoordinates(id) {
     const element = document.getElementById(id);
     const y = element.getBoundingClientRect().top;
-    return y + window.scrollY - NAV_HEIGHT;
+    return y + window.scrollY - HEADER_HEIGHT;
     
 }
 
 document.addEventListener('scroll', function() {
     let currentScrollY = window.scrollY;
-    if(currentScrollY > NAV_HEIGHT){
+    if(currentScrollY > HEADER_HEIGHT){
         backToTopBtn.classList.add('visible')
     } else {
         backToTopBtn.classList.remove('visible')
@@ -23,8 +23,8 @@ document.addEventListener('scroll', function() {
 })
 
 linkList.addEventListener('click', function(event) {
-    const sectionElement = event.target.dataset.section;
-    let elCords = findCoordinates(sectionElement);
+    const sectionElementID = event.target.dataset.section;
+    let elCords = findCoordinates(sectionElementID);
     window.scroll({
         top: elCords,
         behavior: 'smooth'
